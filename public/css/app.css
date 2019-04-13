@@ -10660,3 +10660,14 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.task-lists .header {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-lists .header > a {
+  padding: 10px;
+  text-decoration: underline;
+}
+

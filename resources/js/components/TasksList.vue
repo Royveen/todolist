@@ -1,6 +1,14 @@
 <template>
     <div class="task-lists">
-    
+        <div class="header">
+            <a href='#' @click="addTasks()">Add Task</a>
+            <div class="search">
+                <input type="text" v-model="search" class="form-control" placeholder="search">
+            </div>
+        </div>
+        <div class="task-add" v-if="activeTaskAdd">
+            <task-form v-on:task-done="closeTask($event)"> </task-form>
+        </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -31,18 +39,30 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+           
+            console.log("component mounted")
         },
         data() {
             return {
+                activeTaskAdd: false,
+                search: '',
                 list : [],
-                tasks : {
-                    title: '',
-                    description: '',
-                    date: ''
-                }
             }
         },
+        methods: {
+
+            addTasks: function() {
+                
+                this.activeTaskAdd = true;
+            },
+
+            closeTask: function(data) {
+                this.activeTaskAdd = false;
+                this.list.push(data);
+                console.log(data);
+            }
+
+        }
 
     }
 </script>

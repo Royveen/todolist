@@ -20,9 +20,9 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('task-options', require('./components/TasksComponent.vue').default);
+Vue.component('task-options', require('./components/TasksOptionsComponent.vue').default);
 Vue.component('task-list', require('./components/TasksList.vue').default);
+Vue.component('task-form', require('./components/TaskForm.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

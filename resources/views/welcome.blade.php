@@ -10,7 +10,7 @@
         <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel='stylesheet' href="{{ asset('css/app.css') }}"
+        <link rel='stylesheet' href="{{ asset('css/app.css') }}">
         
     </head>
     <body>
@@ -20,18 +20,12 @@
             <a class="navbar-brand" href="#">ToDoist</a>
         </nav>   
        </div>
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4 options">
-                    <task-options></task-options>
-                </div>
-                <div class="col-md-6">
-                    <task-list></task-list>
-                </div>
+       @include('messages.messages') 
+       <div class="container">
+        <task-options></task-options>
+            
             </div>
         </div>
-       </div>
 
        <script src="{{ asset('js/app.js')}}"></script>
     </body>

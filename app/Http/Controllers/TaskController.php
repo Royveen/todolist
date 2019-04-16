@@ -11,11 +11,10 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($date)
     {
-        $tasks = Task::all();
-
-        return $tasks;
+        
+        
     }
 
     /**
@@ -36,7 +35,21 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required'
+        ]);
+
+        $task = new Task;
+
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        $task->date = $request->input('date');
+        $task->status = $request->input('status');
+        $task->save();
+        
+        return response($task,201);
     }
 
     /**
@@ -47,7 +60,12 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        if($id == 'completed') {
+            $tasks = Task::orderBy('updated_at', 'desc')->where('status', $id)->get();
+        }else {
+            $tasks = Task::orderBy('created_at', 'desc')->where('date', $id)->where('status', 'pending')->get();
+        }
+        return response($tasks);
     }
 
     /**
@@ -70,7 +88,21 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required'
+        ]);
+
+        $task = Task::find($id);
+
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        $task->date = $request->input('date');
+        $task->status = $request->input('status');
+        $task->save();
+        
+        return response($task,201);
     }
 
     /**

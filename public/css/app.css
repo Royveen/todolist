@@ -10660,14 +10660,27 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.nextDays {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+}
+
 .task-lists .header {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
 
-.task-lists .header > a {
-  padding: 10px;
-  text-decoration: underline;
+.task-form {
+  margin-bottom: 20px;
+}
+
+.task-form .button-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-form .button-box .btn:nth-child(1) {
+  margin-right: 10px;
 }
 

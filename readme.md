@@ -16,7 +16,7 @@ Laravel Requirements. https://laravel.com/docs/5.8#installing-laravel
 Clone this repository
 
 ```
-git clone https://github.com/Royveen/todolist.git.git vue-todo
+git clone https://github.com/Royveen/todolist.git vue-todo
 ```
 
 Create a MySQL database

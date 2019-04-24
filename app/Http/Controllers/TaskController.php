@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +15,7 @@ class TaskController extends Controller
      */
     public function index($date)
     {
-        
-        
+        //
     }
 
     /**
@@ -36,17 +37,17 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
             'description' => 'required',
             'date' => 'required'
         ]);
 
         $task = new Task;
 
-        $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->date = $request->input('date');
         $task->status = $request->input('status');
+        $task->date_completed = $request->input('date_completed');
+        $task->user = auth()->user()->id;
         $task->save();
         
         return response($task,201);
@@ -60,10 +61,17 @@ class TaskController extends Controller
      */
     public function show($id)
     {
+        
+        $user_id = auth()->user('id')->id;
+
         if($id == 'completed') {
-            $tasks = Task::orderBy('updated_at', 'desc')->where('status', $id)->get();
+            $tasks = Task::orderBy('updated_at', 'desc')->where('status', $id)->where('user',$user_id)->get();
         }else {
-            $tasks = Task::orderBy('created_at', 'desc')->where('date', $id)->where('status', 'pending')->get();
+            $tasks = Task::orderBy('date', 'asc')
+            ->where('date','like', $id.'%')
+            ->where('status', 'pending')
+            ->where('user',$user_id)
+            ->get();
         }
         return response($tasks);
     }
@@ -89,19 +97,17 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title' => 'required',
             'description' => 'required',
             'date' => 'required'
         ]);
 
         $task = Task::find($id);
 
-        $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->date = $request->input('date');
+        $task->date_completed = $request->input('date_completed');
         $task->status = $request->input('status');
         $task->save();
-        
         return response($task,201);
     }
 
@@ -113,6 +119,8 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        $task->delete();
+        return response('success',201);
     }
 }

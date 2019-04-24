@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "moment": "^2.24.0",
-        "npm": "^6.9.0"
+        "npm": "^6.9.0",
+        "vue-bootstrap-datetimepicker": "^5.0.1"
     }
 }

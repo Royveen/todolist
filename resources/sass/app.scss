@@ -8,29 +8,87 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
 .navbar-laravel {
-  background-color: #fff;
+  background-color: $red;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  .navbar-brand {
+    color: $white;
+    font-size: 24px;
+    font-style: italic;
+    text-decoration: underline;
+  }
+
+  .navbar-nav {
+    .nav-link{
+      color: $white;
+    }
+  }
 }
 
 .nextDays {
   margin-bottom: 30px;
-  border-bottom: 1px solid #333;
+}
+
+.fas {
+  font-size: 18px;
+  background: transparent;
+  color: $red;
 }
 
 .task-lists {
-  .header {
-    margin-bottom: 10px;
+  .card-header {
     display: flex;
     justify-content: space-between;
+
+    a {
+      margin-top: 10px;
+    }
+  }
+
+  .task-add {
+    width: 100%;
   }
 }
 
 .task-form {
   margin-bottom: 20px;
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
   .button-box {
     display: flex;
     justify-content: flex-end;
+
+    .btn {
+      background-color: transparent;
+      border: 0;
+      padding-right: 0;
+      &.btn-primary {
+        .fas {
+          color: $green;
+        }
+      }
+
+      .fa-edit {
+        color: $green;
+      }
+
+      &.btn-danger {
+        .fas {
+          color: $red;
+        }
+      }
+      
+      &:focus {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+      }
+    }
 
     .btn:nth-child(1) {
       margin-right: 10px;

@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('tasks');
 });
 
+Route::get('/tasks', 'ViewController@tasksView');
 Route::resource('api/tasks','TaskController' );
+Auth::routes();

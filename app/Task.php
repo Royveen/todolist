@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    //
+    public $primaryKey = 'id';
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

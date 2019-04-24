@@ -58891,7 +58891,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              !_vm.activeTaskAdd
+              !_vm.activeTaskAdd && _vm.listStatus != "completed"
                 ? _c(
                     "a",
                     {

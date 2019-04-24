@@ -7,7 +7,7 @@
                     <h5 v-if="listStatus!='completed'">{{dayName}}</h5>
                     <h5 v-if="listStatus=='completed'">Completed Tasks</h5>
                 </button>
-                <a href='javascript:void(0)' v-if="!activeTaskAdd" @click="openTaskForm()"><i
+                <a href='javascript:void(0)' v-if="!activeTaskAdd && (listStatus!='completed')" @click="openTaskForm()"><i
                         class="fas fa-plus-circle"></i>
                 </a>
 

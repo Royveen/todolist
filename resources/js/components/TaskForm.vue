@@ -6,7 +6,6 @@
                 <textarea type="text" cols=1 rows=1 placeholder="Description" v-model="task.description"
                     class="form-control" id="desc"></textarea>
                 <div class="input-group-append">
-                    <!-- <input type="datetime-local" v-model = "task.date" class="form-control" id="dateBox" > -->
                     <date-picker v-model="task.date" :config="$root.options"></date-picker>
                 </div>
             </div>

@@ -1786,7 +1786,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['taskObject', 'defaultDate'],
   data: function data() {
@@ -58993,7 +58992,10 @@ var render = function() {
                                   _c(
                                     "a",
                                     {
-                                      attrs: { href: "javascript:void(0)" },
+                                      attrs: {
+                                        title: "Edit",
+                                        href: "javascript:void(0)"
+                                      },
                                       on: {
                                         click: function($event) {
                                           return _vm.editTask(task, i)
@@ -59008,7 +59010,10 @@ var render = function() {
                                   _c(
                                     "a",
                                     {
-                                      attrs: { href: "javascript:void(0)" },
+                                      attrs: {
+                                        title: "Mark Complete",
+                                        href: "javascript:void(0)"
+                                      },
                                       on: {
                                         click: function($event) {
                                           return _vm.updateStatus(task.id, i)
@@ -59023,7 +59028,10 @@ var render = function() {
                                   _c(
                                     "a",
                                     {
-                                      attrs: { href: "javascript:void(0)" },
+                                      attrs: {
+                                        title: "Delete",
+                                        href: "javascript:void(0)"
+                                      },
                                       on: {
                                         click: function($event) {
                                           return _vm.deleteTask(task.id, i)
@@ -59156,7 +59164,7 @@ var render = function() {
       _vm.activeTab == "Next 7" && _vm.nextDates.length > 0
         ? _c(
             "div",
-            _vm._l(_vm.nextDates, function(date, i) {
+            _vm._l(_vm.nextDates, function(date) {
               return _c(
                 "div",
                 { key: date, staticClass: "nextDays" },
@@ -71386,7 +71394,7 @@ var app = new Vue({
     options: {
       format: 'YYYY-MM-DD hh:mm:ss',
       minDate: new Date(),
-      useCurrent: false,
+      useCurrent: true,
       showClear: true,
       showClose: true
     }

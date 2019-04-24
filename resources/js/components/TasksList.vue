@@ -30,17 +30,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="task , i in list" v-bind:key="task.id">
+                            <tr v-for="(task,i) in list" v-bind:key="task.id">
                                 <td>{{i+1}}</td>
                                 <td>{{task.description}}</td>
                                 <td v-if="listStatus=='completed'">{{task.date_completed}} </td>
                                 <td v-if="listStatus!='completed'">
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"> <a href="javascript:void(0)"
+                                        <li class="list-inline-item"> <a title="Edit" href="javascript:void(0)"
                                                 @click="editTask(task, i)"><i class="fas fa-edit"></i></a></li>
-                                        <li class="list-inline-item"> <a href="javascript:void(0)"
+                                        <li class="list-inline-item"> <a title="Mark Complete" href="javascript:void(0)"
                                                 @click="updateStatus(task.id,i)"><i class="fas fa-tasks"></i></a></li>
-                                        <li class="list-inline-item"> <a href="javascript:void(0)"
+                                        <li class="list-inline-item"> <a title="Delete" href="javascript:void(0)"
                                                 @click="deleteTask(task.id,i)"><i class="fas fa-trash-alt"></i></a></li>
                                     </ul>
                                 </td>

@@ -18,7 +18,7 @@
             </div>
 
             <div v-if="activeTab == 'Next 7' && nextDates.length > 0">
-                <div class="nextDays" v-for="date,i in nextDates" v-bind:key="date">
+                <div class="nextDays" v-for="date in nextDates" v-bind:key="date">
                     <task-list :dateToFetch="date" :listStatus="status" showList="no"></task-list>
                 </div>
             </div>

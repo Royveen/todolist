@@ -52,7 +52,7 @@ const app = new Vue({
       options: {
         format: 'YYYY-MM-DD hh:mm:ss',
         minDate:new Date(),
-        useCurrent: false,
+        useCurrent: true,
         showClear: true,
         showClose: true,
       }
